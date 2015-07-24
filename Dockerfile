@@ -42,6 +42,7 @@ ENV HOME /home/sandstorm
 ENV USER sandstorm
 
 #Copy over and execute installer script
+USER root
 ADD ./install.sh /install.sh
 RUN /install.sh -d -u
 
