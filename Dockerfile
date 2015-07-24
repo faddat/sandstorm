@@ -37,14 +37,15 @@ RUN apt-get install -y curl xz-utils
 
 # Add the sandstorm user that can never be used
 RUN adduser --disabled-password --gecos "" sandstorm
-USER sandstorm
-ENV HOME /home/sandstorm
-ENV USER sandstorm
 
 #Copy over and execute installer script
 USER root
 ADD ./install.sh /install.sh
 RUN /install.sh -d -u
+
+USER sandstorm
+ENV HOME /home/sandstorm
+ENV USER sandstorm
 
 RUN echo 'SERVER_USER=sandstorm\n\
 PORT=6080\n\
