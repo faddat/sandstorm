@@ -54,6 +54,6 @@ WILDCARD_HOST=*.local.sandstorm.io:6080\n\
 MAIL_URL=\n' > $HOME/sandstorm/sandstorm.conf
 
 RUN echo 'export PATH=$PATH:$HOME/sandstorm' >> $HOME/.bashrc
-
+VOLUME /home/sandstorm:/sandstorm
 EXPOSE 6080
 CMD /home/sandstorm/sandstorm/sandstorm start && sleep infinity
