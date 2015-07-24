@@ -27,7 +27,8 @@
 # store Sandstorm's data outside the container, then run the following:
 # mkdir -p sandstorm_var/{log,mongo,pid,sandstorm/apps,sandstorm/grains,sandstorm/downloads} && chmod -R 777 sandstorm_var
 # docker run -v `pwd`/sandstorm_var:/home/sandstorm/sandstorm/var -p 6080:6080 -i -t sandstorm
-# REMEMBER!  DOCKERS SHARE YOUR KERNEL!  IF YOU'RE USING DEBIAN/UBUNTU, YOU WILL NEED TO RUN EITHER ALL OF OR SOME OF THE SHELL SCRIPTS FOR INSTALLING SANDSTORM AS ROOT.  
+# REMEMBER!  DOCKERS SHARE YOUR KERNEL!  IF YOU'RE USING DEBIAN/UBUNTU, YOU WILL NEED TO RUN THIS MAGIC COMMAND-- on the host!:
+# sysctl -w kernel.unprivileged_userns_clone=1
 
 
 # Use Ubuntu Trusty as our base
