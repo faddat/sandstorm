@@ -29,19 +29,20 @@
 # docker run -v `pwd`/sandstorm_var:/home/sandstorm/sandstorm/var -p 6080:6080 -i -t sandstorm
 
 # Use Ubuntu Trusty as our base
-FROM ubuntu:14.04
+FROM ubuntu:15.04
 
 # Install sandstorm dependencies
 RUN apt-get update
 RUN apt-get install -y curl xz-utils
 
+# Add the sandstorm user that can never be used
 RUN adduser --disabled-password --gecos "" sandstorm
 USER sandstorm
 ENV HOME /home/sandstorm
 ENV USER sandstorm
 
+#Copy over and execute installer script
 ADD ./install.sh /install.sh
-
 RUN /install.sh -d -u
 
 RUN echo 'SERVER_USER=sandstorm\n\
