@@ -44,7 +44,7 @@ RUN adduser --disabled-password --gecos "" sandstorm
 #Copy over and execute installer script
 USER root
 ADD ./install.sh /install.sh
-RUN /install.sh -d -u
+RUN /install.sh
 
 USER sandstorm
 ENV HOME /home/sandstorm
