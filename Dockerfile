@@ -43,8 +43,8 @@ RUN adduser --disabled-password --gecos "" sandstorm
 
 #Copy over and execute installer script
 USER root
-ADD ./install.sh /install.sh
-RUN /install.sh
+ADD ./dockerinstall.sh /dockerinstall.sh
+RUN /dockerinstall.sh
 
 USER sandstorm
 ENV HOME /home/sandstorm
